@@ -1,5 +1,5 @@
 //
-// Created by Johnathan Hwang on 9/17/22.
+// Created by Johnathan, Brian, Robert, and Keithan on 9/17/22.
 //
 #ifndef DOUBLELINKEDLIST_DLL_CPP
 #define DOUBLELINKEDLIST_DLL_CPP
@@ -65,10 +65,10 @@ void DLL<T>::pushFront(T data) {
     }
     else{
         Node<T>* n = createNewNode(data);
-        tail->next = n;
-        n->prev = tail;
-        n->next = nullptr;
-        tail = n;
+        n->prev = nullptr;
+        n->next = head;
+        head->prev = n;
+        head = n;
     }
 }
 
@@ -135,16 +135,20 @@ bool DLL<T>::checkList() {
 template<class T>
 void DLL<T>::popFront() {
     Node<T>* temp = head;
+    //head->prev = nullptr;
+    temp->next->prev = temp->prev;
     head = temp->next;
-    head->prev = nullptr;
     delete temp;
 }
 
 template<class T>
 void DLL<T>::popBack() {
     Node<T>* temp = tail;
+    //tail->next =nullptr;
     temp->prev->next = temp->next;
     tail = temp->prev;
+    if(head == temp)
+        head = temp->next;
     delete temp;
 }
 
@@ -215,7 +219,5 @@ std::ostream& operator <<(std::ostream& out, const DLL<S>& list){
     out << std::endl;
     return out;
 }
-
-
 
 #endif
