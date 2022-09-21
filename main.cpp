@@ -14,6 +14,7 @@ int main() {
     //test1.remove(3);
     test2 = test1;
     test2 += 5;
+    std::cout<<test1<<std::endl;
     std::cout<<test2;
     //std::cout << test1;
 

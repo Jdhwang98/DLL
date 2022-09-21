@@ -65,10 +65,10 @@ void DLL<T>::pushFront(T data) {
     }
     else{
         Node<T>* n = createNewNode(data);
-        n->prev = nullptr;
-        n->next = head;
-        head->prev = n;
-        head = n;
+        tail->next = n;
+        n->prev = tail;
+        n->next = nullptr;
+        tail = n;
     }
 }
 
@@ -136,6 +136,7 @@ template<class T>
 void DLL<T>::popFront() {
     Node<T>* temp = head;
     head = temp->next;
+    head->prev = nullptr;
     delete temp;
 }
 
@@ -143,6 +144,7 @@ template<class T>
 void DLL<T>::popBack() {
     Node<T>* temp = tail;
     temp->prev->next = temp->next;
+    tail = temp->prev;
     delete temp;
 }
 
