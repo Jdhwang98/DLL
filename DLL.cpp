@@ -18,9 +18,9 @@ DLL<T>::DLL(const DLL<T> &list) {
 template<class T>
 DLL<T>::~DLL() {
     Node<T>* walker = head;
-    while(walker != nullptr){
+    while(head != nullptr){
         popFront();
-        walker = walker->next;
+//        walker = walker->next;
     }
 }
 
@@ -63,9 +63,14 @@ void DLL<T>::pushFront(T data) {
     if(head == nullptr){
         addFirstNode(data);
     }
+    else if(head->next == nullptr){
+        Node<T>* n = createNewNode(data);
+        n->next = head;
+        head->prev = n;
+        head = n;
+    }
     else{
         Node<T>* n = createNewNode(data);
-        n->prev = nullptr;
         n->next = head;
         head->prev = n;
         head = n;
@@ -76,6 +81,12 @@ template<class T>
 void DLL<T>::pushBack(T data) {
     if(head == nullptr){
         addFirstNode(data);
+    }
+    else if (head->next == nullptr){
+        Node<T>* n = createNewNode(data);
+        n->prev = head;
+        head->next = n;
+        tail = n;
     }
     else{
         Node<T>* n = createNewNode(data);
@@ -169,7 +180,7 @@ void DLL<T>::remove(T target) {
 }
 
 template<class T>
-void DLL<T>::checkListSize() {
+int DLL<T>::checkListSize() {
     Node<T>* walker = head;
     int counter = 0;
 
@@ -178,6 +189,7 @@ void DLL<T>::checkListSize() {
         walker = walker->next;
     }
     std::cout<< "List size is: "<<counter<<std::endl;
+    return counter;
 }
 
 template<class T>
@@ -218,6 +230,32 @@ std::ostream& operator <<(std::ostream& out, const DLL<S>& list){
     }
     out << std::endl;
     return out;
+}
+
+template<class T>
+Node<T> *DLL<T>::headPtr() const {
+    return head;
+}
+
+template<class T>
+Node<T> *DLL<T>::tailPtr() const{
+    return tail;
+}
+
+template<class T>
+T &DLL<T>::seek(T item) {
+    Node<T>* walker = tail;
+    int counter = 1;
+    while(walker != nullptr){
+        if(walker->data == item){
+            std::cout << "node item: " << walker-> data << " is located in node: " << counter<< std::endl;
+            return walker->data;
+        }
+        walker = walker->prev;
+        counter++;
+    }
+    std::cout << "Item was not found\n";
+    return walker->data;
 }
 
 #endif

@@ -9,6 +9,8 @@ set(CMAKE_DEPENDS_LANGUAGES
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/Users/john/CLionProjects/DoubleLinkedList/DLL.cpp" "CMakeFiles/DoubleLinkedList.dir/DLL.cpp.o" "gcc" "CMakeFiles/DoubleLinkedList.dir/DLL.cpp.o.d"
+  "/Users/john/CLionProjects/DoubleLinkedList/Queue.cpp" "CMakeFiles/DoubleLinkedList.dir/Queue.cpp.o" "gcc" "CMakeFiles/DoubleLinkedList.dir/Queue.cpp.o.d"
+  "/Users/john/CLionProjects/DoubleLinkedList/Stack.cpp" "CMakeFiles/DoubleLinkedList.dir/Stack.cpp.o" "gcc" "CMakeFiles/DoubleLinkedList.dir/Stack.cpp.o.d"
   "/Users/john/CLionProjects/DoubleLinkedList/main.cpp" "CMakeFiles/DoubleLinkedList.dir/main.cpp.o" "gcc" "CMakeFiles/DoubleLinkedList.dir/main.cpp.o.d"
   )
 

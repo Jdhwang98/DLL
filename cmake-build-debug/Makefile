@@ -153,6 +153,54 @@ DLL.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/DoubleLinkedList.dir/build.make CMakeFiles/DoubleLinkedList.dir/DLL.cpp.s
 .PHONY : DLL.cpp.s
 
+Queue.o: Queue.cpp.o
+.PHONY : Queue.o
+
+# target to build an object file
+Queue.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DoubleLinkedList.dir/build.make CMakeFiles/DoubleLinkedList.dir/Queue.cpp.o
+.PHONY : Queue.cpp.o
+
+Queue.i: Queue.cpp.i
+.PHONY : Queue.i
+
+# target to preprocess a source file
+Queue.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DoubleLinkedList.dir/build.make CMakeFiles/DoubleLinkedList.dir/Queue.cpp.i
+.PHONY : Queue.cpp.i
+
+Queue.s: Queue.cpp.s
+.PHONY : Queue.s
+
+# target to generate assembly for a file
+Queue.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DoubleLinkedList.dir/build.make CMakeFiles/DoubleLinkedList.dir/Queue.cpp.s
+.PHONY : Queue.cpp.s
+
+Stack.o: Stack.cpp.o
+.PHONY : Stack.o
+
+# target to build an object file
+Stack.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DoubleLinkedList.dir/build.make CMakeFiles/DoubleLinkedList.dir/Stack.cpp.o
+.PHONY : Stack.cpp.o
+
+Stack.i: Stack.cpp.i
+.PHONY : Stack.i
+
+# target to preprocess a source file
+Stack.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DoubleLinkedList.dir/build.make CMakeFiles/DoubleLinkedList.dir/Stack.cpp.i
+.PHONY : Stack.cpp.i
+
+Stack.s: Stack.cpp.s
+.PHONY : Stack.s
+
+# target to generate assembly for a file
+Stack.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DoubleLinkedList.dir/build.make CMakeFiles/DoubleLinkedList.dir/Stack.cpp.s
+.PHONY : Stack.cpp.s
+
 main.o: main.cpp.o
 .PHONY : main.o
 
@@ -189,6 +237,12 @@ help:
 	@echo "... DLL.o"
 	@echo "... DLL.i"
 	@echo "... DLL.s"
+	@echo "... Queue.o"
+	@echo "... Queue.i"
+	@echo "... Queue.s"
+	@echo "... Stack.o"
+	@echo "... Stack.i"
+	@echo "... Stack.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
