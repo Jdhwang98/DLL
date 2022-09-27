@@ -31,16 +31,19 @@ public:
     bool checkList();
     Node<T>* headPtr ()const;
     Node<T>* tailPtr()const;
-
+    void clearList();
     int checkListSize();
     T& getHead();
     T& getTail();
     T& seek (T item);
+    T& popFront();
+    T& popBack();
 
     Node<T>* search(T data);
-    void popFront();
-    void popBack();
+    //void popFront();
+    //void popBack();
     void remove(T target);
+
 
     template<class S>
     friend std::ostream& operator <<(std::ostream& out, const DLL<S>& list);

@@ -143,17 +143,38 @@ bool DLL<T>::checkList() {
     }
 }
 
+//template<class T>
+//void DLL<T>::popFront() {
+//    Node<T>* temp = head;
+//    //head->prev = nullptr;
+//    temp->next->prev = temp->prev;
+//    head = temp->next;
+//    delete temp;
+//}
+//
+//template<class T>
+//void DLL<T>::popBack() {
+//    Node<T>* temp = tail;
+//    //tail->next =nullptr;
+//    temp->prev->next = temp->next;
+//    tail = temp->prev;
+//    if(head == temp)
+//        head = temp->next;
+//    delete temp;
+//}
+
 template<class T>
-void DLL<T>::popFront() {
+T& DLL<T>::popFront() {
     Node<T>* temp = head;
     //head->prev = nullptr;
     temp->next->prev = temp->prev;
     head = temp->next;
     delete temp;
+    return head->data;
 }
 
 template<class T>
-void DLL<T>::popBack() {
+T& DLL<T>::popBack() {
     Node<T>* temp = tail;
     //tail->next =nullptr;
     temp->prev->next = temp->next;
@@ -161,6 +182,7 @@ void DLL<T>::popBack() {
     if(head == temp)
         head = temp->next;
     delete temp;
+    return tail->data;
 }
 
 template<class T>
@@ -256,6 +278,14 @@ T &DLL<T>::seek(T item) {
     }
     std::cout << "Item was not found\n";
     return walker->data;
+}
+
+template<class T>
+void DLL<T>::clearList() {
+    while(head!= nullptr){
+        popFront();
+    }
+
 }
 
 #endif
