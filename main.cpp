@@ -74,6 +74,8 @@ int main() {
     std::cout << "this is a Queue: ";
     myQueue.print();
 
+    std::cout<< myStack.top();
+
 
     return 0;
 }

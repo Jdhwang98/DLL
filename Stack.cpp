@@ -56,7 +56,7 @@ int Stack<T>::size() {
 
 template<class T>
 T &Stack<T>::top() {
-    return _list.getTail();
+    return _list.getHead();
 }
 
 template<class T>
