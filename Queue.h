@@ -18,6 +18,7 @@ public:
 
     void operator =(const Queue<T>& _list);
 
+    void print();
     void pop();
     bool empty();
     void push(T item);
@@ -28,8 +29,8 @@ public:
     T& Seek(T item);
 
 
-    template<class S>
-    friend std::ostream& operator <<(std::ostream& out, const Queue<S>& _list);
+//    template<class S>
+//    friend std::ostream& operator <<(std::ostream& out, const Queue<S>& _list);
 
 };
 

@@ -36,12 +36,12 @@ void Stack<T>::operator=(const Stack<T> &_list) {
 
 template<class T>
 void Stack<T>::pop() {
-    _list.popBack();
+    _list.popFront();
 }
 
 template<class T>
 void Stack<T>::push(T item) {
-    _list.pushBack(item);
+    _list.pushFront(item);
 }
 
 template<class T>
@@ -75,6 +75,11 @@ std::ostream &operator<<(std::ostream &out, const Stack<S> &_list)
     }
     out << std::endl;
     return out;
+}
+
+template<class T>
+void Stack<T>::print() {
+    std::cout << _list;
 }
 
 #endif

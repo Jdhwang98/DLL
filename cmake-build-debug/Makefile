@@ -177,6 +177,30 @@ Queue.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/DoubleLinkedList.dir/build.make CMakeFiles/DoubleLinkedList.dir/Queue.cpp.s
 .PHONY : Queue.cpp.s
 
+RPN.o: RPN.cpp.o
+.PHONY : RPN.o
+
+# target to build an object file
+RPN.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DoubleLinkedList.dir/build.make CMakeFiles/DoubleLinkedList.dir/RPN.cpp.o
+.PHONY : RPN.cpp.o
+
+RPN.i: RPN.cpp.i
+.PHONY : RPN.i
+
+# target to preprocess a source file
+RPN.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DoubleLinkedList.dir/build.make CMakeFiles/DoubleLinkedList.dir/RPN.cpp.i
+.PHONY : RPN.cpp.i
+
+RPN.s: RPN.cpp.s
+.PHONY : RPN.s
+
+# target to generate assembly for a file
+RPN.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DoubleLinkedList.dir/build.make CMakeFiles/DoubleLinkedList.dir/RPN.cpp.s
+.PHONY : RPN.cpp.s
+
 Stack.o: Stack.cpp.o
 .PHONY : Stack.o
 
@@ -240,6 +264,9 @@ help:
 	@echo "... Queue.o"
 	@echo "... Queue.i"
 	@echo "... Queue.s"
+	@echo "... RPN.o"
+	@echo "... RPN.i"
+	@echo "... RPN.s"
 	@echo "... Stack.o"
 	@echo "... Stack.i"
 	@echo "... Stack.s"

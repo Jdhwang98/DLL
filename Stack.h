@@ -19,7 +19,7 @@ public:
 
     void operator =(const Stack<T>& _list); //assignment opperator
 
-
+    void print();
     void pop();
     void push(T item);
     bool empty();

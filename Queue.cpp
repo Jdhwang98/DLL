@@ -38,7 +38,7 @@ bool Queue<T>::empty() {
 
 template<class T>
 void Queue<T>::push(T item) {
-    _list.pushFront(item);
+    _list.pushBack(item);
 }
 
 template<class T>
@@ -61,7 +61,10 @@ T &Queue<T>::Seek(T item) {
     return _list.seek(item);
 }
 
-
+template<class T>
+void Queue<T>::print() {
+    std::cout << _list;
+}
 
 
 #endif

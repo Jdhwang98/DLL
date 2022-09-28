@@ -1,5 +1,8 @@
-CMakeFiles/DoubleLinkedList.dir/main.cpp.o: \
-  /Users/john/CLionProjects/DoubleLinkedList/main.cpp \
+CMakeFiles/DoubleLinkedList.dir/RPN.cpp.o: \
+  /Users/john/CLionProjects/DoubleLinkedList/RPN.cpp \
+  /Users/john/CLionProjects/DoubleLinkedList/RPN.h \
+  /Users/john/CLionProjects/DoubleLinkedList/Stack.h \
+  /Users/john/CLionProjects/DoubleLinkedList/DLL.h \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.3.sdk/usr/include/c++/v1/iostream \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.3.sdk/usr/include/c++/v1/__config \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.3.sdk/usr/include/c++/v1/__config_site \
@@ -415,10 +418,8 @@ CMakeFiles/DoubleLinkedList.dir/main.cpp.o: \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.3.sdk/usr/include/sys/_types/_fsfilcnt_t.h \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.3.sdk/usr/include/_types/_nl_item.h \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.3.sdk/usr/include/c++/v1/__bsd_locale_defaults.h \
-  /Users/john/CLionProjects/DoubleLinkedList/DLL.h \
   /Users/john/CLionProjects/DoubleLinkedList/Node.h \
   /Users/john/CLionProjects/DoubleLinkedList/DLL.cpp \
-  /Users/john/CLionProjects/DoubleLinkedList/Stack.h \
   /Users/john/CLionProjects/DoubleLinkedList/Stack.cpp \
   /Users/john/CLionProjects/DoubleLinkedList/Queue.h \
   /Users/john/CLionProjects/DoubleLinkedList/Queue.cpp
