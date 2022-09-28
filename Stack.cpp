@@ -67,7 +67,7 @@ T &Stack<T>::seek(T data) {
 template<class S>
 std::ostream &operator<<(std::ostream &out, const Stack<S> &_list)
 {
-    Node<S>* walker = _list._list.tailPtr();
+    Node<S>* walker = _list._list.getTail();
     while(walker != nullptr)
     {
         out << walker->data << " ";

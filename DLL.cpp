@@ -1,5 +1,5 @@
 //
-// Created by Johnathan, Brian, Robert, and Keithan on 9/17/22.
+// Created by Johnathan Hwang on 9/17/22.
 //
 #ifndef DOUBLELINKEDLIST_DLL_CPP
 #define DOUBLELINKEDLIST_DLL_CPP
@@ -18,9 +18,9 @@ DLL<T>::DLL(const DLL<T> &list) {
 template<class T>
 DLL<T>::~DLL() {
     Node<T>* walker = head;
-    while(head != nullptr){
+    while(walker != nullptr){
         popFront();
-//        walker = walker->next;
+        walker = walker->next;
     }
 }
 
@@ -63,14 +63,9 @@ void DLL<T>::pushFront(T data) {
     if(head == nullptr){
         addFirstNode(data);
     }
-    else if(head->next == nullptr){
-        Node<T>* n = createNewNode(data);
-        n->next = head;
-        head->prev = n;
-        head = n;
-    }
     else{
         Node<T>* n = createNewNode(data);
+        n->prev = nullptr;
         n->next = head;
         head->prev = n;
         head = n;
@@ -81,12 +76,6 @@ template<class T>
 void DLL<T>::pushBack(T data) {
     if(head == nullptr){
         addFirstNode(data);
-    }
-    else if (head->next == nullptr){
-        Node<T>* n = createNewNode(data);
-        n->prev = head;
-        head->next = n;
-        tail = n;
     }
     else{
         Node<T>* n = createNewNode(data);
@@ -143,46 +132,18 @@ bool DLL<T>::checkList() {
     }
 }
 
-//template<class T>
-//void DLL<T>::popFront() {
-//    Node<T>* temp = head;
-//    //head->prev = nullptr;
-//    temp->next->prev = temp->prev;
-//    head = temp->next;
-//    delete temp;
-//}
-//
-//template<class T>
-//void DLL<T>::popBack() {
-//    Node<T>* temp = tail;
-//    //tail->next =nullptr;
-//    temp->prev->next = temp->next;
-//    tail = temp->prev;
-//    if(head == temp)
-//        head = temp->next;
-//    delete temp;
-//}
-
 template<class T>
-T& DLL<T>::popFront() {
+void DLL<T>::popFront() {
     Node<T>* temp = head;
-    //head->prev = nullptr;
-    temp->next->prev = temp->prev;
     head = temp->next;
     delete temp;
-    return head->data;
 }
 
 template<class T>
-T& DLL<T>::popBack() {
+void DLL<T>::popBack() {
     Node<T>* temp = tail;
-    //tail->next =nullptr;
     temp->prev->next = temp->next;
-    tail = temp->prev;
-    if(head == temp)
-        head = temp->next;
     delete temp;
-    return tail->data;
 }
 
 template<class T>
@@ -202,7 +163,7 @@ void DLL<T>::remove(T target) {
 }
 
 template<class T>
-int DLL<T>::checkListSize() {
+void DLL<T>::checkListSize() {
     Node<T>* walker = head;
     int counter = 0;
 
@@ -211,7 +172,6 @@ int DLL<T>::checkListSize() {
         walker = walker->next;
     }
     std::cout<< "List size is: "<<counter<<std::endl;
-    return counter;
 }
 
 template<class T>
@@ -254,38 +214,6 @@ std::ostream& operator <<(std::ostream& out, const DLL<S>& list){
     return out;
 }
 
-template<class T>
-Node<T> *DLL<T>::headPtr() const {
-    return head;
-}
 
-template<class T>
-Node<T> *DLL<T>::tailPtr() const{
-    return tail;
-}
-
-template<class T>
-T &DLL<T>::seek(T item) {
-    Node<T>* walker = tail;
-    int counter = 1;
-    while(walker != nullptr){
-        if(walker->data == item){
-            std::cout << "node item: " << walker-> data << " is located in node: " << counter<< std::endl;
-            return walker->data;
-        }
-        walker = walker->prev;
-        counter++;
-    }
-    std::cout << "Item was not found\n";
-    return walker->data;
-}
-
-template<class T>
-void DLL<T>::clearList() {
-    while(head!= nullptr){
-        popFront();
-    }
-
-}
 
 #endif

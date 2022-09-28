@@ -29,25 +29,18 @@ public:
     void insertAfter(T item, T targetItem);
     void insertBefore(T item, T targetItem);
     bool checkList();
-    Node<T>* headPtr ()const;
-    Node<T>* tailPtr()const;
-    void clearList();
-    int checkListSize();
+
+    void checkListSize();
     T& getHead();
     T& getTail();
-    T& seek (T item);
-    T& popFront();
-    T& popBack();
 
     Node<T>* search(T data);
-    //void popFront();
-    //void popBack();
+    void popFront();
+    void popBack();
     void remove(T target);
-
 
     template<class S>
     friend std::ostream& operator <<(std::ostream& out, const DLL<S>& list);
 };
 #include "DLL.cpp"
 #endif //DOUBLELINKEDLIST_DLL_H
-
