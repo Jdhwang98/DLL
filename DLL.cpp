@@ -18,9 +18,8 @@ DLL<T>::DLL(const DLL<T> &list) {
 template<class T>
 DLL<T>::~DLL() {
     Node<T>* walker = head;
-    while(walker != nullptr){
+    while(head != nullptr){
         popFront();
-        walker = walker->next;
     }
 }
 
@@ -63,9 +62,14 @@ void DLL<T>::pushFront(T data) {
     if(head == nullptr){
         addFirstNode(data);
     }
+    else if(head->next == nullptr){
+        Node<T>* n = createNewNode(data);
+        n->next = head;
+        head->prev = n;
+        head = n;
+    }
     else{
         Node<T>* n = createNewNode(data);
-        n->prev = nullptr;
         n->next = head;
         head->prev = n;
         head = n;
@@ -74,16 +78,24 @@ void DLL<T>::pushFront(T data) {
 
 template<class T>
 void DLL<T>::pushBack(T data) {
-    if(head == nullptr){
+    Node<T>* walker = head;
+    if(head == nullptr)
+    {
         addFirstNode(data);
     }
-    else{
+    else
+    {
+        while(walker->next != nullptr)
+        {
+            walker = walker->next;
+        }
         Node<T>* n = createNewNode(data);
-        tail->next = n;
-        n->prev = tail;
-        n->next = nullptr;
+        walker->next = n;
+        n->prev = walker;
+        walker->next = n;
         tail = n;
     }
+
 }
 
 template<class T>
@@ -133,16 +145,39 @@ bool DLL<T>::checkList() {
 }
 
 template<class T>
-void DLL<T>::popFront() {
+T&  DLL<T>::popFront()
+{
+    assert(checkListSize() && "Can't pop the front of an empty list."); //List is empty
     Node<T>* temp = head;
-    head = temp->next;
+    if(checkListSize() == 1) //Single Node
+    {
+        head = nullptr;
+        tail = nullptr;
+        return temp->data;
+    }
+    if(checkListSize() >= 2) //More than a single node
+    {
+        head = head->next;
+        return temp->data;
+    }
     delete temp;
 }
 
 template<class T>
-void DLL<T>::popBack() {
+T&  DLL<T>::popBack() {
+    assert(checkListSize() && "Can't pop the back of an empty list."); //List is empty
     Node<T>* temp = tail;
-    temp->prev->next = temp->next;
+    if(checkListSize() == 1) //Single Node
+    {
+        head = nullptr;
+        tail = nullptr;
+        return temp->data;
+    }
+    if(checkListSize() >= 2) //More than a single node
+    {
+        tail = tail->next;
+        return temp->data;
+    }
     delete temp;
 }
 
@@ -163,7 +198,7 @@ void DLL<T>::remove(T target) {
 }
 
 template<class T>
-void DLL<T>::checkListSize() {
+int DLL<T>::checkListSize() {
     Node<T>* walker = head;
     int counter = 0;
 
@@ -171,7 +206,8 @@ void DLL<T>::checkListSize() {
         counter++;
         walker = walker->next;
     }
-    std::cout<< "List size is: "<<counter<<std::endl;
+    //std::cout<< "List size is: "<<counter<<std::endl;
+    return counter;
 }
 
 template<class T>
@@ -212,6 +248,32 @@ std::ostream& operator <<(std::ostream& out, const DLL<S>& list){
     }
     out << std::endl;
     return out;
+}
+
+template<class T>
+Node<T> *DLL<T>::headPtr() const {
+    return head;
+}
+
+template<class T>
+Node<T> *DLL<T>::tailPtr() const{
+    return tail;
+}
+
+template<class T>
+T &DLL<T>::seek(T item) {
+    Node<T>* walker = tail;
+    int counter = 1;
+    while(walker != nullptr){
+        if(walker->data == item){
+            std::cout << "node item: " << walker-> data << " is located in node: " << counter<< std::endl;
+            return walker->data;
+        }
+        walker = walker->prev;
+        counter++;
+    }
+    std::cout << "Item was not found\n";
+    return walker->data;
 }
 
 

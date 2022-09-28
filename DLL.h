@@ -29,14 +29,17 @@ public:
     void insertAfter(T item, T targetItem);
     void insertBefore(T item, T targetItem);
     bool checkList();
+    Node<T>* headPtr ()const;
+    Node<T>* tailPtr()const;
 
-    void checkListSize();
+    int checkListSize();
     T& getHead();
     T& getTail();
+    T& seek (T item);
 
     Node<T>* search(T data);
-    void popFront();
-    void popBack();
+    T& popFront();
+    T&  popBack();
     void remove(T target);
 
     template<class S>
